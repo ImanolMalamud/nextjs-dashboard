@@ -1,3 +1,5 @@
+'use client';
+
 import { CustomerField } from '@/app/lib/definitions';
 import Link from 'next/link';
 import {
@@ -50,7 +52,6 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
               ))}
           </div>
         </div>
-        // ...
       </div>
 </form>
   );

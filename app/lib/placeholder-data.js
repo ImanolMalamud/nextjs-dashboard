@@ -9,6 +9,77 @@ const users = [
   },
 ];
 
+const registers = [
+  {
+    id: '9a021ef2-1a5e-4a1b-94d1-5f8323b0f2b1',
+    patent: 'ABC123',
+    description: 'Cambio de aceite y filtro para automóvil Toyota Corolla.',
+    date: '2024-04-01',
+  },
+  {
+    id: '3d6cfc9b-64b2-4929-b71f-85ef5c7ed18f',
+    patent: 'DEF456',
+    description:
+      'Revisión de niveles y lubricación para camioneta Ford Ranger.',
+    date: '2024-04-05',
+  },
+  {
+    id: 'd0d6b7fd-7b49-46e2-8e8b-3b60d49a5f8a',
+    patent: 'GHI789',
+    description:
+      'Recarga de líquido de frenos y revisión de presión de neumáticos para vehículo Honda Civic.',
+    date: '2024-04-10',
+  },
+  {
+    id: '8fd2e8a9-185b-46b0-af5d-9354e9cc49a7',
+    patent: 'JKL012',
+    description:
+      'Inspección general y ajuste de motor para automóvil Volkswagen Golf.',
+    date: '2024-04-15',
+  },
+  {
+    id: '34f0bf1e-7db0-4c28-b086-08cf4f97c8a9',
+    patent: 'MNO345',
+    description:
+      'Cambio de aceite y filtro para camioneta Chevrolet Silverado.',
+    date: '2024-04-20',
+  },
+  {
+    id: '67a8e45b-6111-41e7-b71a-45a45ff4f230',
+    patent: 'PQR678',
+    description:
+      'Revisión de frenos y cambio de pastillas para automóvil Ford Focus.',
+    date: '2024-04-25',
+  },
+  {
+    id: 'ae73c3d3-820c-4d35-8f46-2776cf9efc08',
+    patent: 'STU901',
+    description: 'Cambio de aceite y filtro para motocicleta Yamaha FZ.',
+    date: '2024-04-08',
+  },
+  {
+    id: 'f1bb0e9d-cf94-45b7-bd5d-0a84306208c4',
+    patent: 'VWX234',
+    description:
+      'Revisión de niveles y lubricación para camioneta Toyota Hilux.',
+    date: '2024-04-12',
+  },
+  {
+    id: '6df3f498-7bc3-40cf-9910-dc9510b16e7d',
+    patent: 'YZA567',
+    description:
+      'Recarga de aire acondicionado y revisión de sistema eléctrico para automóvil Nissan Sentra.',
+    date: '2024-04-17',
+  },
+  {
+    id: '71c625f1-f35a-48fc-8624-ff98a8f72d28',
+    patent: 'BCD890',
+    description:
+      'Inspección de suspensión y alineación de ruedas para camioneta Dodge Ram.',
+    date: '2024-04-22',
+  },
+];
+
 const customers = [
   {
     id: '3958dc9e-712f-4377-85e9-fec4b6a6442a',
@@ -182,6 +253,7 @@ const revenue = [
 
 module.exports = {
   users,
+  registers,
   customers,
   invoices,
   revenue,

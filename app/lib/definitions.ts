@@ -9,6 +9,13 @@ export type User = {
   password: string;
 };
 
+export type Register = {
+  id: string;
+  patent: string;
+  description: string;
+  date: string;
+};
+
 export type Customer = {
   id: string;
   name: string;
@@ -42,6 +49,13 @@ export type LatestInvoice = {
 // The database returns a number for amount, but we later format it to a string with the formatCurrency function
 export type LatestInvoiceRaw = Omit<LatestInvoice, 'amount'> & {
   amount: number;
+};
+
+export type RegistersTable = {
+  id: string;
+  patent: string;
+  description: string;
+  date: string;
 };
 
 export type InvoicesTable = {

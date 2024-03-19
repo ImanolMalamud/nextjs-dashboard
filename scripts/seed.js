@@ -4,8 +4,47 @@ const {
   customers,
   revenue,
   users,
+  registers,
 } = require('../app/lib/placeholder-data.js');
 const bcrypt = require('bcrypt');
+
+async function seedRegisters(client) {
+  try {
+    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+    // Create the "users" table if it doesn't exist
+    const createTable = await client.sql`
+      CREATE TABLE IF NOT EXISTS registers (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        patent VARCHAR(255) NOT NULL,
+        description VARCHAR(255) NOT NULL,
+        date DATE NOT NULL
+      );
+    `;
+
+    console.log(`Created "registers" table`);
+
+    // Insert data into the "users" table
+    const insertedRegisters = await Promise.all(
+      registers.map(async (register) => {
+        return client.sql`
+        INSERT INTO registers (id, patent, description, date)
+        VALUES (${register.id}, ${register.patent}, ${register.description}, ${register.date})
+        ON CONFLICT (id) DO NOTHING;
+      `;
+      }),
+    );
+
+    console.log(`Seeded ${insertedRegisters.length} registers`);
+
+    return {
+      createTable,
+      registers: insertedRegisters,
+    };
+  } catch (error) {
+    console.error('Error seeding registers:', error);
+    throw error;
+  }
+}
 
 async function seedUsers(client) {
   try {
@@ -164,6 +203,7 @@ async function main() {
   const client = await db.connect();
 
   await seedUsers(client);
+  await seedRegisters(client);
   await seedCustomers(client);
   await seedInvoices(client);
   await seedRevenue(client);

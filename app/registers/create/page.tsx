@@ -6,13 +6,13 @@ export default async function Page() {
   const customers = await fetchCustomers();
  
   return (
-    <main>
+    <main className='w-2/3 mt-20 mx-auto'>
       <Breadcrumbs
         breadcrumbs={[
-          { label: 'Registros', href: '/dashboard/registers' },
+          { label: 'Registros', href: '/registers' },
           {
             label: 'Crear Registro',
-            href: '/dashboard/registers/create',
+            href: '/registers/create',
             active: true,
           },
         ]}

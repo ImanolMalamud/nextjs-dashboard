@@ -20,20 +20,20 @@ export default async function Page({
     const totalPages = await fetchRegistersPages(query);
 
   return (
-    <div className="w-2/3 mt-20 mx-auto">
-      <div className="flex w-full items-center justify-between">
-        <h1 className={`${lusitana.className} text-2xl`}>Registros</h1>
+      <div className="w-2/3 mx-auto pt-14">
+        <div className="flex w-full items-center justify-between">
+          <h1 className={`${lusitana.className} text-2xl text-gray-50`}>Registros</h1>
+        </div>
+        <div className="mt-4 flex items-center justify-between gap-2 md:mt-8">
+          <Search placeholder="Buscar por patente" />
+          <CreateRegister />
+        </div>
+        <Suspense key={query + currentPage} fallback={<InvoicesTableSkeleton />}>
+          <Table query={query} currentPage={currentPage} />
+        </Suspense>
+        <div className="mt-5 flex w-full justify-center">
+          <Pagination totalPages={totalPages} />
+        </div>
       </div>
-      <div className="mt-4 flex items-center justify-between gap-2 md:mt-8">
-        <Search placeholder="Buscar por patente" />
-        <CreateRegister />
-      </div>
-       <Suspense key={query + currentPage} fallback={<InvoicesTableSkeleton />}>
-        <Table query={query} currentPage={currentPage} />
-      </Suspense>
-      <div className="mt-5 flex w-full justify-center">
-        <Pagination totalPages={totalPages} />
-      </div>
-    </div>
   );
 }

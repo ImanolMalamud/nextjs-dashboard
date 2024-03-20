@@ -30,12 +30,24 @@ export async function fetchFilteredRegisters(
         registers.date
       FROM registers
       WHERE
-        registers.patent ILIKE ${`%${query}%`} OR
-        registers.description ILIKE ${`%${query}%`} OR
-        registers.date::text ILIKE ${`%${query}%`}
+        registers.patent ILIKE ${`${query}%`}
       ORDER BY registers.date DESC
       LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}
     `;
+
+    // const registers = await sql<RegistersTable>`
+    //   SELECT
+    //     registers.patent,
+    //     registers.description,
+    //     registers.date
+    //   FROM registers
+    //   WHERE
+    //     registers.patent ILIKE ${`%${query}%`} OR
+    //     registers.description ILIKE ${`%${query}%`} OR
+    //     registers.date::text ILIKE ${`%${query}%`}
+    //   ORDER BY registers.date DESC
+    //   LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}
+    // `;
 
     return registers.rows;
   } catch (error) {

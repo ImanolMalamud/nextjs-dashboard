@@ -12,30 +12,30 @@ export default async function RegistersTable({
   const registers = await fetchFilteredRegisters(query, currentPage);
 
   return (
-    <div className="mt-6 flow-root">
+    <div className="mt-6 flow-root text-gray-50 bg-gray-800">
       <div className="inline-block min-w-full align-middle">
-        <div className="rounded-lg bg-gray-50 p-2 md:pt-0">
+        <div className="rounded-lg p-2 md:pt-0">
           <div className="md:hidden">
             {registers?.map((register) => (
               <div
                 key={register.id}
-                className="mb-2 w-full rounded-md bg-white p-4"
+                className="mb-2 w-full rounded-md p-4"
               >
-                <div className="flex w-full items-center justify-between pt-4 ">
+                <div className="flex w-full items-center justify-between pb-2">
                   <div>
-                    <p className='text-gray-500'>{formatDateToLocal(register.date)}</p>
+                    <p className='text-gray-400'>{formatDateToLocal(register.date)}</p>
                   </div>
                   {/* <div className="flex justify-end gap-2">
                     <UpdateInvoice id={register.id} />
                     <DeleteInvoice id={register.id} />
                   </div> */}
                 </div>
-                <div className="flex items-center justify-between border-b pb-4">
+                <div className="flex items-center justify-between pb-1 font-semibold">
                   <div>
                     <p className="text-sm">{register.patent}</p>
                   </div>
                 </div>
-                <div className="flex items-center justify-between border-b pb-4">
+                <div className="flex items-center justify-between">
                   <div>
                     <p className="text-sm">{register.description}</p>
                   </div>
@@ -44,7 +44,7 @@ export default async function RegistersTable({
               </div>
             ))}
           </div>
-          <table className="hidden min-w-full text-gray-900 md:table">
+          <table className="hidden min-w-full text-gray-50 md:table bg-gray-800">
             <thead className="rounded-lg text-left text-sm font-normal">
               <tr>
                 <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
@@ -61,7 +61,7 @@ export default async function RegistersTable({
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-white">
+            <tbody className="">
               {registers?.map((register) => (
                 <tr
                   key={register.id}
